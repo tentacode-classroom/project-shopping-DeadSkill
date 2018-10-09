@@ -4,38 +4,24 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Kebab;
 
 
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/product/{idProduct}", name="idProduct")
+     * @Route("/product/{idProduct}", name="product")
      */
-    public function index(int $idProduct)
-    {
-        $product = new Product();
-        $product->id = $productId;
-        $product->name = 'Toto';
 
-        $kebab = [
-            'banane',
-            'pomme',
-            'fraise',
-        ];
-
-        return $this->render('product/index.html.twig', [
-        'product' => $product,
-        'fruits' => $fruits
-        ]);
-    }
-}
-
-class Product
+    public function show($idProduct)
 {
-    public $id;
-    public $name;
-    public function upperName()
-    {
-        return strtoupper($this->name);
-    }
+    $kebab = $this->getDoctrine()
+        ->getRepository(Kebab::class)
+        ->find($idProduct);
+
+        return $this->render('product.html.twig', [
+            'ekebab' => $kebab,
+        ]);
+
+}
 }
