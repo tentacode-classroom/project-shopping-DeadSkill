@@ -5,3 +5,5 @@
 # product:
 #     path: /product
 #     controller:
+logout:
+    path: /logout

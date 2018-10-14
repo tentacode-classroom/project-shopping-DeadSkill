@@ -1,15 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-{{ ekebab.taille }} - E-Kebab
-{% endblock %}
-
-{% block content %}
-    <p>{{ ekebab.taille }}</p>
+{{ ekebab.viande }} - E-Kebab
 {% endblock %}
 
 {% block headerTitle %}
-    {{ ekebab.taille }}
+    {{ ekebab.viande }}
 {% endblock %}
+
+{% block content %}
+{% block description %}
+    <p class="lead text-muted">{{ ekebab.description }}</p>
+{% endblock %}
+<div class="container">
+<div class="card" style="width: 20rem;">
+  <img class="card-img-top" src="{{ ekebab.imgurl }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ ekebab.viande }}</h5>
+    <p class="card-text"><strong>Taille :</strong> {{ ekebab.taille }}</p>
+    <p class="card-text"><strong>Legumes :</strong> {{ ekebab.legumes }}</p>
+    <p class="card-text"><strong>Sauce :</strong> {{ ekebab.sauce }}</p>
+    <p class="card-text"><strong>Prix :</strong> {{ ekebab.prix }}€</p>
+    <a href="#" class="btn btn-primary">Ajouter au panier</a>
+  </div>
+  </br>
+</div>
+</div>
+{% endblock %}
+
+
 
 

@@ -1,18 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription{% endblock %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block headerTitle %}
+    Inscription
+{% endblock %}
 
 {% block content %}
 <main role="main" class="container">
-    <h1>Inscription</h1>
     {# templates/default/new.html.twig #}
+    <div class="container">
     {{ form_start(form) }}
     
-    {{ form_row(form.email )}}
-    {{ form_row(form.password )}}
+    {{ form_row(form.email)}}
+    {{ form_row(form.password)}}
     <hr/>
-    {{ form_row(form.firstname )}}
-    {{ form_row(form.lastname )}}
+    {{ form_row(form.firstname)}}
+    {{ form_row(form.lastname)}}
+
+    {{ form(form) }}
 {{ form_end(form) }}
+    </div>
 </main>
 {% endblock %}

@@ -46,6 +46,16 @@ class Kebab
      */
     private $viandes;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $imgurl;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $description;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +129,30 @@ class Kebab
     public function setViandes(?Viande $viandes): self
     {
         $this->viandes = $viandes;
+
+        return $this;
+    }
+
+    public function getImgurl(): ?string
+    {
+        return $this->imgurl;
+    }
+
+    public function setImgurl(string $imgurl): self
+    {
+        $this->imgurl = $imgurl;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
